@@ -123,6 +123,20 @@ add_action( 'admin_notices', 'comingspoon_admin_notice' );
 add_filter( 'login_message', 'comingspoon_login_notice' );
 
 /**
+ * Determine the path and URL for our plugin, so that we can easily reference
+ * files without having to worry about weird directory structure nonsense.
+ */
+function comingspoon_plugin_dir( $return = 'url' ) {
+	$path = plugin_dir_path( dirname( __FILE__ ) );
+	$url = plugin_dir_url( __FILE__ );
+	if ( 'path' === $return ) :
+		return $path;
+	else :
+		return $url;
+	endif;
+}
+
+/**
  * Load the "Coming Soon" template!
 */
 function comingspoon_load_template() {

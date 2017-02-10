@@ -1,0 +1,21 @@
+$size__site-gutter: 40px;
+
+$color__navy: #142030;
+$color__pink: #dc7f9b;
+$color__red: #9e0031;
+$color__pink: #ff5a5f;
+$color__red: #c81d25;
+$color__aqua: #087e8b;
+$color__blue: #bfd7ea;
+$color__white: #f5efed;
+$color__black: #0f0a0a;
+
+
+$color__primary: $color__aqua;
+$color__secondary: $color__blue;
+$color__accent: desaturate($color__pink, 10%);
+$color__highlight: lighten($color__accent, 20%);
+
+$color__background: $color__navy;
+$color__text: $color__white;
+$color__links: $color__secondary;
