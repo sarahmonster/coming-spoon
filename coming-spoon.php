@@ -2,20 +2,23 @@
 /**
  * Plugin Name: Coming Spoon
  * Plugin URI: https://github.com/wpdocde/slim-maintenance-mode
- * Description: A lightweight solution for scheduled maintenance. Simply activate the plugin and only administrators can see the website.
- * Version: 1.3.2
- * Author: Johannes Ries
- * Author URI: http://wpdoc.de
- * Text Domain: slim-maintenance-mode
+ * Description:  A simple and flexible coming soon/maintenance mode plugin for WordPress. Has nothing to do with spoons.
+ * Version: 0.1.0
+ * Author: sarah semark
+ * Author URI: https://triggersandsparks.com
+ * Text Domain: coming-spoon
  * License: GPL-2.0+
  * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
  * Domain Path: /languages
+ *
+ * Coming Spoon is based on Slim Maintenance Mode by Johannes Ries.
+ * https://github.com/wpdocde/slim-maintenance-mode
  */
 
 /**
  * Avoid direct calls
 */
-defined('ABSPATH') or die("No direct requests for security reasons.");
+defined( 'ABSPATH' ) or die( 'No direct requests for security reasons.' );
 
 /*
  * Require plugin.php
@@ -27,7 +30,7 @@ if ( ! function_exists( 'is_plugin_active_for_network' ) ) {
 /**
  * Activation with Cache Support
 */
-function slim_maintenance_mode_on_activation()	{
+function comingspoon_on_activation()	{
 	if ( ! current_user_can( 'activate_plugins' ) ) {
 		return;
 	}
@@ -51,13 +54,18 @@ function slim_maintenance_mode_on_activation()	{
 		ob_end_clean();
 		w3tc_pgcache_flush();
 	}
+
+	// Clear WP-Rocket Cache
+	if ( function_exists( 'rocket_clean_domain' ) ) {
+		rocket_clean_domain();
+	}
 }
-register_activation_hook( __FILE__, 'slim_maintenance_mode_on_activation' );
+register_activation_hook( __FILE__, 'comingspoon_on_activation' );
 
 /**
  * Deactivation with Cache Support
 */
-function slim_maintenance_mode_on_deactivation() {
+function comingspoon_on_deactivation() {
 	if ( ! current_user_can( 'activate_plugins' ) ) {
 		return;
 	}
@@ -81,39 +89,47 @@ function slim_maintenance_mode_on_deactivation() {
 		ob_end_clean();
 		w3tc_pgcache_flush();
 	}
+
+	// Clear WP-Rocket Cache
+	if ( function_exists( 'rocket_clean_domain' ) ) {
+		rocket_clean_domain();
+	}
 }
-register_deactivation_hook( __FILE__, 'slim_maintenance_mode_on_deactivation' );
+register_deactivation_hook( __FILE__, 'comingspoon_on_deactivation' );
 
 /**
  * Localization
 */
-load_plugin_textdomain( 'slim-maintenance-mode', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
+load_plugin_textdomain( 'coming-spoon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
 /**
  * Alert message when active
 */
-function smm_admin_notices() {
+function comingspoon_admin_notice() {
 	echo '<div id="message" class="error fade"><p>' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . ' <a href="plugins.php#slim-maintenance-mode">' . __( 'Deactivate it, when work is done.', 'slim-maintenance-mode' ) . '</a></p></div>';
 }
 
+// Show alert on multisite installs.
 if ( is_multisite() && is_plugin_active_for_network( plugin_basename( __FILE__ ) ) ) {
 	add_action( 'network_admin_notices', 'smm_admin_notices' );
-	add_action( 'admin_notices', 'smm_admin_notices' );
-	add_filter( 'login_message',
-		function() {
-			return '<div id="login_error">' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . '</div>';
-		} );
 }
 
+// Show alert for attempted login.
+function comingspoon_login_notice() {
+	return '<div id="login_error">' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . '</div>';
+}
+
+add_action( 'admin_notices', 'comingspoon_admin_notice' );
+add_filter( 'login_message', 'comingspoon_login_notice' );
+
 /**
- * Maintenance message when active
+ * Load the "Coming Soon" template!
 */
-function slim_maintenance_mode() {
+function comingspoon_load_template() {
 	nocache_headers();
 	if( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
 		if ( $overridden_template = locate_template( 'coming-soon-template.php' ) ) {
-			// locate_template() returns path to file
-			// if either the child theme or the parent theme have overridden the template
+			// If either the child theme or the parent theme have overridden the template
 			load_template( $overridden_template );
 		} else {
 			// If neither the child nor parent theme have overridden the template,
@@ -124,6 +140,6 @@ function slim_maintenance_mode() {
 		//wp_die( '', __( 'Maintenance', 'slim-maintenance-mode' ), array('response' => '503') );
 	}
 }
-add_action( 'get_header', 'slim_maintenance_mode' );
+add_action( 'get_header', 'comingspoon_load_template' );
 
 ?>
