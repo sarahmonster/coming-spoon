@@ -102,21 +102,36 @@ register_deactivation_hook( __FILE__, 'comingspoon_on_deactivation' );
 */
 load_plugin_textdomain( 'coming-spoon', false, dirname( plugin_basename( __FILE__ ) ) . '/languages' );
 
+/*
+ * Check to see if coming soon mode is enabled.
+ */
+function comingspoon_enabled() {
+	if ( get_option( 'comingspoon_options' )['enabled'] ) :
+		return true;
+	else :
+		return false;
+	endif;
+}
+
 /**
  * Alert message when active
 */
 function comingspoon_admin_notice() {
-	echo '<div id="message" class="error fade"><p>' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . ' <a href="plugins.php#slim-maintenance-mode">' . __( 'Deactivate it, when work is done.', 'slim-maintenance-mode' ) . '</a></p></div>';
+	if ( comingspoon_enabled() ) :
+		echo '<div id="message" class="error fade"><p>' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . ' <a href="plugins.php#slim-maintenance-mode">' . __( 'Deactivate it, when work is done.', 'slim-maintenance-mode' ) . '</a></p></div>';
+	endif;
 }
 
 // Show alert on multisite installs.
-if ( is_multisite() && is_plugin_active_for_network( plugin_basename( __FILE__ ) ) ) {
+if ( is_multisite() && is_plugin_active_for_network( plugin_basename( __FILE__ ) && comingspoon_enabled() ) ) {
 	add_action( 'network_admin_notices', 'smm_admin_notices' );
 }
 
 // Show alert for attempted login.
 function comingspoon_login_notice() {
-	return '<div id="login_error">' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . '</div>';
+	if ( comingspoon_enabled() ) :
+		return '<div id="login_error">' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . '</div>';
+	endif;
 }
 
 add_action( 'admin_notices', 'comingspoon_admin_notice' );
@@ -141,7 +156,7 @@ function comingspoon_plugin_dir( $return = 'url' ) {
 */
 function comingspoon_load_template() {
 	nocache_headers();
-	if( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) {
+	if( comingspoon_enabled() && ( !current_user_can( 'edit_themes' ) || !is_user_logged_in() ) ) {
 		if ( $overridden_template = locate_template( 'coming-soon-template.php' ) ) {
 			// If either the child theme or the parent theme have overridden the template
 			load_template( $overridden_template );
@@ -155,5 +170,11 @@ function comingspoon_load_template() {
 	}
 }
 add_action( 'get_header', 'comingspoon_load_template' );
+
+/*
+ * Customizer additions.
+ *
+ */
+require( 'inc/customizer.php' );
 
 ?>
