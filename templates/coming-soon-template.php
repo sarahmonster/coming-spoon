@@ -14,6 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<title><?php bloginfo( 'name' ); ?>: <?php esc_html_e( 'Coming Soon', 'comingspoon' ); ?></title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,400,400i,500,600" rel="stylesheet">
 	<link rel='stylesheet' id='comingspoon-style'  href=<?php echo esc_url( comingspoon_plugin_dir() . 'assets/stylesheets/style.css' ); ?> type='text/css' media='all' />
 
 </head>

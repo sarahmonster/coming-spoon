@@ -10,6 +10,10 @@ body {
 	color: $color__text;
 	padding: $size__site-gutter;
 	text-align: center;
+	font-family: $font__sans;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.4;
 }
 
 a {
@@ -18,16 +22,20 @@ a {
 
 .site-title {
 	font-size: 1.2rem;
-	letter-spacing: 1px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	margin: 0 auto $size__site-gutter;
 	text-transform: uppercase;
 }
 
 .page-title {
 	font-size: 3.6rem;
+	font-weight: 600;
+	letter-spacing: -1px;
 }
 
 .custom-logo {
-	margin: $size__site-gutter auto;
+	margin: 0 auto $size__site-gutter;
 	max-width: 200px;
 	height: auto;
 }
