@@ -121,10 +121,11 @@ function comingspoon_admin_notice() {
 		echo '<div id="message" class="error fade"><p>' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . ' <a href="plugins.php#slim-maintenance-mode">' . __( 'Deactivate it, when work is done.', 'slim-maintenance-mode' ) . '</a></p></div>';
 	endif;
 }
+add_action( 'admin_notices', 'comingspoon_admin_notice' );
 
 // Show alert on multisite installs.
 if ( is_multisite() && is_plugin_active_for_network( plugin_basename( __FILE__ ) && comingspoon_enabled() ) ) {
-	add_action( 'network_admin_notices', 'smm_admin_notices' );
+	add_action( 'network_admin_notices', 'comingspoon_admin_notice' );
 }
 
 // Show alert for attempted login.
@@ -133,9 +134,35 @@ function comingspoon_login_notice() {
 		return '<div id="login_error">' . __( '<strong>Maintenance mode</strong> is <strong>active</strong>!', 'slim-maintenance-mode' ) . '</div>';
 	endif;
 }
-
-add_action( 'admin_notices', 'comingspoon_admin_notice' );
 add_filter( 'login_message', 'comingspoon_login_notice' );
+
+/*
+ * Change the admin bar colour so it's obvious we're in coming soon mode,
+ * even if you're a logged-in user looking at your own site.
+ */
+function comingspoon_admin_bar_color() {
+	if ( comingspoon_enabled() ) :
+		wp_enqueue_style( 'comingspoon-admin', plugin_dir_url( __FILE__ ) . 'assets/stylesheets/admin-bar.css', array(), '20170220', 'all' );
+	endif;
+}
+add_action( 'wp_enqueue_scripts', 'comingspoon_admin_bar_color' );
+add_action( 'admin_enqueue_scripts', 'comingspoon_admin_bar_color' );
+
+/*
+ * Add a bit of clarifying text to coloured admin bar,
+ *
+ */
+function comingspoon_admin_bar_text( $wp_admin_bar ) {
+	if ( comingspoon_enabled() ) :
+		$wp_admin_bar->add_node( array(
+			'id'    => 'comingspoon-enabled-text',
+			'title' => 'Coming soon mode enabled',
+			'meta'  => array( 'class' => 'comingspoon-enabled-text' )
+		) );
+	endif;
+}
+add_action( 'admin_bar_menu', 'comingspoon_admin_bar_text', 999 );
+
 
 /**
  * Determine the path and URL for our plugin, so that we can easily reference
