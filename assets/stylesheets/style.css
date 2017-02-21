@@ -417,7 +417,7 @@ template {
     border-radius: 3px;
     box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
     clip: auto !important;
-    color: #F7F7F2;
+    color: #f5f2f7;
     display: block;
     font-size: 0.875rem;
     font-weight: bold;
@@ -444,14 +444,15 @@ label {
   font-size: 0.8em;
   letter-spacing: 1px;
   text-transform: uppercase;
-  color: #AED1E6;
+  color: #96bbcc;
   display: block;
   text-align: left; }
 
 input[type="text"],
 input[type="email"] {
-  color: #053C5E;
-  border: 2px solid #053C5E;
+  color: #6d6b6d;
+  border: 2px solid #4889aa;
+  border-bottom-color: #255d7c;
   border-radius: 0;
   font-size: 1em;
   font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -460,31 +461,30 @@ input[type="email"] {
   input[type="text"]:focus,
   input[type="email"]:focus {
     outline: none;
-    color: #c81d25;
-    border-color: #c81d25; }
+    color: #4889aa;
+    border-color: #96bbcc; }
 
 input[type="submit"] {
-  background: #053C5E;
+  background: #4889aa;
   border: 0;
-  border-bottom: 2px solid #021d2e;
+  border-bottom: 2px solid #255d7c;
   box-shadow: none;
-  color: #F7F7F2;
+  color: #f5f2f7;
   font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
-  line-height: 1.2;
-  margin-left: -4px;
-  padding: 0.8rem 2rem 0.7rem;
+  margin-left: -6px;
+  padding: 13px;
   text-decoration: none;
   transition: all ease-in-out 50ms;
-  width: 150px; }
+  width: 150px;
+  vertical-align: top; }
   input[type="submit"]:hover {
-    background-color: #9b171d;
-    border-color: #6f1015;
-    color: #F7F7F2;
-    text-shadow: 1px 1px rgba(247, 247, 242, 0.5); }
+    background-color: #255d7c;
+    border-color: #0e222d; }
   input[type="submit"]:active, input[type="submit"]:focus {
-    background-color: #c81d25;
-    border-color: #9b171d; }
+    outline: none;
+    background-color: #96bbcc;
+    border-color: #4889aa; }
 
 .jetpack-social-navigation ul {
   display: block;
@@ -505,7 +505,7 @@ input[type="submit"] {
 .jetpack-social-navigation a:before {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #AED1E6;
+  background: #aca8ad;
   border-radius: 100%;
   display: inline-block;
   font-family: Genericons;
@@ -513,7 +513,7 @@ input[type="submit"] {
   font-style: normal;
   font-weight: normal;
   height: 40px;
-  color: #F7F7F2;
+  color: #f5f2f7;
   line-height: 40px;
   speak: none;
   margin: 0 2.5px;
@@ -708,7 +708,7 @@ input[type="submit"] {
 
 body {
   background: #333233;
-  color: #F7F7F2;
+  color: #f5f2f7;
   padding: 40px;
   text-align: center;
   font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -717,7 +717,7 @@ body {
   line-height: 1.4; }
 
 a {
-  color: #c81d25; }
+  color: #96bbcc; }
 
 .site-title {
   font-size: 1.2rem;

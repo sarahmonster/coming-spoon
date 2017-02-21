@@ -3,18 +3,22 @@ $size__site-gutter: 40px;
 $font__sans: Karla, Montserrat, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 
 $color__charcoal: #333233;
-$color__red: #c81d25;
-$color__blue: #AED1E6;
-$color__white: #F7F7F2;
+$color__grey: #6d6b6d;
+$color__silver: #aca8ad;
+$color__blue: #4889aa;
+$color__blue-light: #96bbcc;
+$color__blue-dark: #255d7c;
+$color__white: #f5f2f7;
 
-$color__primary: $color__blue;
-$color__secondary: #053C5E;
-$color__accent: $color__red;
-$color__highlight: lighten($color__accent, 20%);
+$color__primary: $color__silver;
+$color__secondary: $color__grey;
+$color__accent: $color__blue;
+$color__highlight: $color__blue-light;
+$color__shadow: $color__blue-dark;
 
 $color__background: $color__charcoal;
 $color__text: $color__white;
-$color__links: $color__accent;
+$color__links: $color__highlight;
 
 // Social media colours
 $color__twitter: #55acee;

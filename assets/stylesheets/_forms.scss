@@ -8,7 +8,7 @@ label {
 	font-size: 0.8em;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	color: $color__primary;
+	color: $color__highlight;
 	display: block;
 	text-align: left;
 }
@@ -16,7 +16,8 @@ label {
 input[type="text"],
 input[type="email"] {
 	color: $color__secondary;
-	border: 2px solid $color__secondary;
+	border: 2px solid $color__accent;
+	border-bottom-color: $color__shadow;
 	border-radius: 0;
 	font-size: 1em;
 	font-family: $font__sans;
@@ -26,35 +27,34 @@ input[type="email"] {
 	&:focus {
 		outline: none;
 		color: $color__accent;
-		border-color: $color__accent;
+		border-color: $color__highlight;
 	}
 }
 
 input[type="submit"] {
-	background: $color__secondary;
+	background: $color__accent;
 	border: 0;
-	border-bottom: 2px solid darken($color__secondary, 10%);
+	border-bottom: 2px solid $color__shadow;
 	box-shadow: none;
 	color: $color__white;
 	font-family: $font__sans;
 	font-weight: 400;
-	line-height: 1.2;
-	margin-left: -4px;
-	padding: 0.8rem 2rem 0.7rem;
+	margin-left: -6px;
+	padding: 13px;
 	text-decoration: none;
 	transition: all ease-in-out 50ms;
 	width: 150px;
+	vertical-align: top;
 
 	&:hover {
-		background-color: darken($color__accent, 10%);
-		border-color: darken($color__accent, 20%);
-		color: $color__text;
-		text-shadow: 1px 1px transparentize($color__white, 0.5);
+		background-color: $color__shadow;
+		border-color: darken($color__shadow, 20%);
 	}
 
 	&:active,
 	&:focus {
-		background-color: $color__accent;
-		border-color: darken($color__accent, 10%);
+		outline: none;
+		background-color: $color__highlight;
+		border-color: $color__accent;
 	}
 }
