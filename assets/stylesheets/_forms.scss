@@ -1,0 +1,60 @@
+form {
+	max-width: 500px;
+	margin: 0 auto;
+	text-align: left;
+}
+
+label {
+	font-size: 0.8em;
+	letter-spacing: 1px;
+	text-transform: uppercase;
+	color: $color__primary;
+	display: block;
+	text-align: left;
+}
+
+input[type="text"],
+input[type="email"] {
+	color: $color__secondary;
+	border: 2px solid $color__secondary;
+	border-radius: 0;
+	font-size: 1em;
+	font-family: $font__sans;
+	padding: 12px;
+	width: calc(100% - 180px);
+
+	&:focus {
+		outline: none;
+		color: $color__accent;
+		border-color: $color__accent;
+	}
+}
+
+input[type="submit"] {
+	background: $color__secondary;
+	border: 0;
+	border-bottom: 2px solid darken($color__secondary, 10%);
+	box-shadow: none;
+	color: $color__white;
+	font-family: $font__sans;
+	font-weight: 400;
+	line-height: 1.2;
+	margin-left: -4px;
+	padding: 0.8rem 2rem 0.7rem;
+	text-decoration: none;
+	transition: all ease-in-out 50ms;
+	width: 150px;
+
+	&:hover {
+		background-color: darken($color__accent, 10%);
+		border-color: darken($color__accent, 20%);
+		color: $color__text;
+		text-shadow: 1px 1px transparentize($color__white, 0.5);
+	}
+
+	&:active,
+	&:focus {
+		background-color: $color__accent;
+		border-color: darken($color__accent, 10%);
+	}
+}

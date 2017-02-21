@@ -405,6 +405,57 @@ template {
 [hidden] {
   display: none; }
 
+form {
+  max-width: 500px;
+  margin: 0 auto;
+  text-align: left; }
+
+label {
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #AED1E6;
+  display: block;
+  text-align: left; }
+
+input[type="text"],
+input[type="email"] {
+  color: #053C5E;
+  border: 2px solid #053C5E;
+  border-radius: 0;
+  font-size: 1em;
+  font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  padding: 12px;
+  width: calc(100% - 180px); }
+  input[type="text"]:focus,
+  input[type="email"]:focus {
+    outline: none;
+    color: #c81d25;
+    border-color: #c81d25; }
+
+input[type="submit"] {
+  background: #053C5E;
+  border: 0;
+  border-bottom: 2px solid #021d2e;
+  box-shadow: none;
+  color: #F7F7F2;
+  font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-left: -4px;
+  padding: 0.8rem 2rem 0.7rem;
+  text-decoration: none;
+  transition: all ease-in-out 50ms;
+  width: 150px; }
+  input[type="submit"]:hover {
+    background-color: #9b171d;
+    border-color: #6f1015;
+    color: #F7F7F2;
+    text-shadow: 1px 1px rgba(247, 247, 242, 0.5); }
+  input[type="submit"]:active, input[type="submit"]:focus {
+    background-color: #c81d25;
+    border-color: #9b171d; }
+
 body {
   background: #333233;
   color: #F7F7F2;

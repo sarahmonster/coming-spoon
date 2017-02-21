@@ -12,13 +12,14 @@
  */
 function comingspoon_customize_register( $wp_customize ) {
 	/**
-	 * Add the Theme Options section
+	 * Add an options section.
 	 */
 	$wp_customize->add_section( 'comingspoon_options', array(
 		'title'          => esc_html__( 'Coming Soon Mode', 'comingspoon' ),
 		'description'    => esc_html__( 'Not quite ready to publish your site yet? Configure a coming soon page to let your visitors know.', 'comingspoon' ),
 	) );
 
+	// Checkbox to enable and disable coming soon mode.
 	$wp_customize->add_setting( 'comingspoon_options[enabled]', array(
 		'capability'        => 'manage_options',
 		'default'           => false,
@@ -30,6 +31,21 @@ function comingspoon_customize_register( $wp_customize ) {
 		'label'   => esc_html__( 'Enable coming soon mode.', 'comingspoon' ),
 		'section' => 'comingspoon_options',
 		'type'    => 'checkbox',
+	) );
+
+	// MailChimp API key.
+	$wp_customize->add_setting( 'comingspoon_options[mailchimp-signup-url]', array(
+		'capability'        => 'manage_options',
+		'default'           => '',
+		'sanitize_callback' => 'esc_url_raw',
+		'type'              => 'option',
+	) );
+
+	$wp_customize->add_control( 'comingspoon_options[mailchimp-signup-url]', array(
+		'description' => esc_html__( 'Enter your Mailchimp signup URL to display the form on your page.', 'comingspoon' ),
+		'label'       => esc_html__( 'Mailchimp signup URL', 'comingspoon' ),
+		'section'     => 'comingspoon_options',
+		'type'        => 'url',
 	) );
 }
 add_action( 'customize_register', 'comingspoon_customize_register' );

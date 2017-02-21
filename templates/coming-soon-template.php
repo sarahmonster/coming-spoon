@@ -37,6 +37,17 @@
 					<?php bloginfo( 'description' ); ?>
 				</p>
 
+				<?php if ( array_key_exists( 'mailchimp-signup-url', get_option( 'comingspoon_options' ) ) ) : ?>
+					<?php if ( get_option( 'comingspoon_options' )['mailchimp-signup-url'] ) : ?>
+						<form action="<?php echo esc_url( get_option( 'comingspoon_options' )['mailchimp-signup-url'] ); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+							<label for="mce-EMAIL">Email address</label>
+							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+
+							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+						</form>
+					<?php endif; ?>
+				<?php endif; ?>
+
 			</main><!-- #main -->
 		</div><!-- #primary -->
 	</div>
