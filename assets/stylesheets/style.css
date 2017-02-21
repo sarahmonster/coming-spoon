@@ -435,11 +435,6 @@ template {
 #content[tabindex="-1"]:focus {
   outline: 0; }
 
-form {
-  max-width: 500px;
-  margin: 0 auto 40px;
-  text-align: left; }
-
 label {
   font-size: 0.8em;
   letter-spacing: 1px;
@@ -455,7 +450,7 @@ input[type="email"] {
   border-bottom-color: #255d7c;
   border-radius: 0;
   font-size: 1em;
-  font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
   padding: 12px;
   width: calc(100% - 180px); }
   input[type="text"]:focus,
@@ -470,7 +465,7 @@ input[type="submit"] {
   border-bottom: 2px solid #255d7c;
   box-shadow: none;
   color: #f5f2f7;
-  font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 400;
   margin-left: -6px;
   padding: 13px;
@@ -711,7 +706,7 @@ body {
   color: #f5f2f7;
   padding: 40px;
   text-align: center;
-  font-family: Karla, Montserrat, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Karla, "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.4; }
@@ -723,17 +718,31 @@ a {
   font-size: 1.2rem;
   font-weight: 400;
   letter-spacing: 2px;
-  margin: 0 auto 40px;
+  margin: 0 auto 20px;
   text-transform: uppercase; }
-
-.page-title {
-  font-size: 3.6rem;
-  font-weight: 600;
-  letter-spacing: -1px; }
 
 .custom-logo {
   margin: 0 auto 40px;
   max-width: 200px;
   height: auto; }
+
+.page-title {
+  font-size: 3.6rem;
+  font-weight: 600;
+  letter-spacing: -1px;
+  margin: 0 auto 10px;
+  line-height: 1; }
+
+.site-description {
+  font-size: 1.4rem;
+  margin: 0 auto 80px; }
+
+.comingspoon-details {
+  max-width: 500px;
+  margin: 0 auto 40px;
+  text-align: left; }
+
+p {
+  margin-bottom: 40px; }
 
 /*# sourceMappingURL=style.css.map */

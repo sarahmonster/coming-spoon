@@ -14,7 +14,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="http://gmpg.org/xfn/11">
 	<title><?php bloginfo( 'name' ); ?>: <?php esc_html_e( 'Coming Soon', 'comingspoon' ); ?></title>
-	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,400,400i,500,600" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Karla:400,600" rel="stylesheet">
 	<link rel='stylesheet' id='comingspoon-style'  href=<?php echo esc_url( comingspoon_plugin_dir() . 'assets/stylesheets/style.css' ); ?> type='text/css' media='all' />
 	<link rel='stylesheet' id='genericons'  href=<?php echo esc_url( get_template_directory_uri() . '/fonts/genericons/genericons.css' ); ?> type='text/css' media='all' />
 </head>
@@ -34,19 +34,24 @@
 				<h2 class="page-title"><?php esc_html_e( 'Coming Soon', 'comingspoon' ); ?></h2>
 
 				<p class="site-description">
-					<?php bloginfo( 'description' ); ?>
+					<?php //bloginfo( 'description' ); ?>
 				</p>
 
-				<?php if ( array_key_exists( 'mailchimp-signup-url', get_option( 'comingspoon_options' ) ) ) : ?>
-					<?php if ( get_option( 'comingspoon_options' )['mailchimp-signup-url'] ) : ?>
-						<form action="<?php echo esc_url( get_option( 'comingspoon_options' )['mailchimp-signup-url'] ); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-							<label for="mce-EMAIL">Email address</label>
-							<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+				<div class="comingspoon-details">
+					<p><?php esc_html_e( 'This WordPress.com site will be launching very soon. Sign up below to be notified when it’s ready!', 'comingspoon' ); ?></p>
 
-							<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
-						</form>
+					<?php if ( array_key_exists( 'mailchimp-signup-url', get_option( 'comingspoon_options' ) ) ) : ?>
+						<?php if ( get_option( 'comingspoon_options' )['mailchimp-signup-url'] ) : ?>
+							<form action="<?php echo esc_url( get_option( 'comingspoon_options' )['mailchimp-signup-url'] ); ?>" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+								<label for="mce-EMAIL">Email address</label>
+								<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+
+								<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+							</form>
+						<?php endif; ?>
 					<?php endif; ?>
-				<?php endif; ?>
+
+				</div>
 
 				<?php
 					if ( function_exists( 'jetpack_social_menu' ) ) {

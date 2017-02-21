@@ -26,18 +26,35 @@ a {
 	font-size: 1.2rem;
 	font-weight: 400;
 	letter-spacing: 2px;
-	margin: 0 auto $size__site-gutter;
+	margin: 0 auto $size__site-gutter/2;
 	text-transform: uppercase;
-}
-
-.page-title {
-	font-size: 3.6rem;
-	font-weight: 600;
-	letter-spacing: -1px;
 }
 
 .custom-logo {
 	margin: 0 auto $size__site-gutter;
 	max-width: 200px;
 	height: auto;
+}
+
+.page-title {
+	font-size: 3.6rem;
+	font-weight: 600;
+	letter-spacing: -1px;
+	margin: 0 auto $size__site-gutter/4;
+	line-height: 1;
+}
+
+.site-description {
+	font-size: 1.4rem;
+	margin: 0 auto $size__site-gutter*2;
+}
+
+.comingspoon-details {
+	max-width: 500px;
+	margin: 0 auto $size__site-gutter;
+	text-align: left;
+}
+
+p {
+	margin-bottom: $size__site-gutter;
 }
