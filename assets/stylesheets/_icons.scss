@@ -1,0 +1,254 @@
+.jetpack-social-navigation ul {
+	display: block;
+	margin: 0 0 1.5em;
+	padding: 0;
+}
+
+.jetpack-social-navigation li {
+	display: inline-block;
+	margin: 0;
+	line-height: 1;
+}
+
+.jetpack-social-navigation a {
+	border: 0;
+	height: 1em;
+	text-decoration: none;
+	width: 1em;
+}
+
+.jetpack-social-navigation a:before {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: $color__blue;
+	border-radius: 100%;
+	display: inline-block;
+	font-family: Genericons;
+	font-size: 24px;
+	font-style: normal;
+	font-weight: normal;
+	height: 40px;
+	color: $color__white;
+	line-height: 40px;
+	speak: none;
+	margin: 0 $size__site-gutter/16;
+	text-decoration: inherit;
+	transition: all ease-in-out 50ms;
+	vertical-align: top;
+	width: 40px;
+}
+
+.jetpack-social-navigation a:hover:before,
+.jetpack-social-navigation a:visited:hover:before {
+	transform: scale(1.125);
+}
+
+/* Default */
+.jetpack-social-navigation a:before {
+	content: "\f415";
+}
+
+/* CodePen */
+.jetpack-social-navigation a[href*="codepen.io"]:before {
+	content: "\f216";
+}
+
+/* Digg */
+.jetpack-social-navigation a[href*="digg.com"]:before {
+	content: "\f221";
+}
+
+/* Dribbble */
+.jetpack-social-navigation a[href*="dribbble.com"]:before {
+	content: "\f201";
+}
+
+/* Dropbox */
+.jetpack-social-navigation a[href*="dropbox.com"]:before {
+	content: "\f225";
+}
+
+/* Email */
+.jetpack-social-navigation a[href*="mailto:"]:before {
+	content: "\f410";
+}
+
+/* Facebook */
+.jetpack-social-navigation a[href*="facebook.com"]:before {
+	content: "\f203";
+}
+
+/* Flickr */
+.jetpack-social-navigation a[href*="flickr.com"]:before {
+	content: "\f211";
+}
+
+/* Foursquare */
+.jetpack-social-navigation a[href*="foursquare.com"]:before {
+	content: "\f226";
+}
+
+/* GitHub */
+.jetpack-social-navigation a[href*="github.com"]:before {
+	content: "\f200";
+}
+
+/* Google Plus */
+.jetpack-social-navigation a[href*="plus.google.com"]:before {
+	content: "\f206";
+}
+
+/* Instagram */
+.jetpack-social-navigation a[href*="instagram.com"]:before {
+	content: "\f215";
+}
+
+/* LinkedIn */
+.jetpack-social-navigation a[href*="linkedin.com"]:before {
+	content: "\f208";
+}
+
+/* Path */
+.jetpack-social-navigation a[href*="path.com"]:before {
+	content: "\f219";
+}
+
+/* Pinterest */
+.jetpack-social-navigation a[href*="pinterest.com"]:before {
+	content: "\f210";
+}
+
+/* Pocket */
+.jetpack-social-navigation a[href*="getpocket.com"]:before {
+	content: "\f224";
+}
+
+/* Polldaddy */
+.jetpack-social-navigation a[href*="polldaddy.com"]:before {
+	content: "\f217";
+}
+
+/* Reddit */
+.jetpack-social-navigation a[href*="reddit.com"]:before {
+	content: "\f222";
+}
+
+/* RSS Feed */
+.jetpack-social-navigation a[href$="/feed/"]:before {
+	content: "\f413";
+}
+
+/* Skype */
+.jetpack-social-navigation a[href*="skype:"]:before {
+	content: "\f220";
+}
+
+/* Spotify */
+.jetpack-social-navigation a[href*="spotify.com"]:before {
+	content: "\f515";
+}
+
+/* StumbleUpon */
+.jetpack-social-navigation a[href*="stumbleupon.com"]:before {
+	content: "\f223";
+}
+
+/* Tumblr */
+.jetpack-social-navigation a[href*="tumblr.com"]:before {
+	content: "\f214";
+}
+
+/* Twitch */
+.jetpack-social-navigation a[href*="twitch.tv"]:before {
+	content: "\f516";
+}
+
+/* Twitter */
+.jetpack-social-navigation a[href*="twitter.com"]:before {
+	content: "\f202";
+}
+
+/* Vimeo */
+.jetpack-social-navigation a[href*="vimeo.com"]:before {
+	content: "\f212";
+}
+
+/* Vine */
+.jetpack-social-navigation a[href*="vine.co"]:before {
+	content: "\f517";
+}
+
+/* WordPress */
+.jetpack-social-navigation a[href*="wordpress.com"]:before,
+.jetpack-social-navigation a[href*="wordpress.org"]:before {
+	content: "\f205";
+}
+
+/* YouTube */
+.jetpack-social-navigation a[href*="youtube.com"]:before {
+	content: "\f213";
+}
+
+.jetpack-social-navigation,
+.widget .menu-social-container ul {
+	a[href*="wordpress.org"],
+	a[href*="wordpress.com"]::before {
+		background-color: $color__wordpress;
+	}
+
+	a[href*="facebook.com"]::before {
+		background-color: $color__facebook;
+	}
+
+	a[href*="twitter.com"]::before {
+		background-color: $color__twitter;
+	}
+
+	a[href*="dribbble.com"]::before {
+		background-color: $color__dribbble;
+	}
+
+	a[href*="plus.google.com"]::before {
+		background-color: $color__googleplus;
+	}
+
+	a[href*="pinterest.com"]::before {
+		background-color: $color__pinterest;
+	}
+
+	a[href*="github.com"]::before {
+		background-color: $color__github;
+	}
+
+	a[href*="tumblr.com"]::before {
+		background-color: $color__tumblr;
+	}
+
+	a[href*="youtube.com"]::before {
+		background-color: $color__youtube;
+	}
+
+	a[href*="flickr.com"]::before {
+		background-color: $color__flickr;
+	}
+
+	a[href*="vimeo.com"]::before {
+		background-color: $color__vimeo;
+	}
+
+	a[href*="instagram.com"]::before {
+		background-color: $color__instagram;
+	}
+
+	a[href*="codepen.io"]::before {
+		background-color: $color__codepen;
+	}
+
+	a[href*="linkedin.com"]::before {
+		background-color: $color__linkedin;
+	}
+
+	a[href*="yelp.com"]::before {
+		background-color: $color__yelp;
+	}
+}

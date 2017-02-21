@@ -16,7 +16,7 @@
 	<title><?php bloginfo( 'name' ); ?>: <?php esc_html_e( 'Coming Soon', 'comingspoon' ); ?></title>
 	<link href="https://fonts.googleapis.com/css?family=Montserrat:200,400,400,400i,500,600" rel="stylesheet">
 	<link rel='stylesheet' id='comingspoon-style'  href=<?php echo esc_url( comingspoon_plugin_dir() . 'assets/stylesheets/style.css' ); ?> type='text/css' media='all' />
-
+	<link rel='stylesheet' id='genericons'  href=<?php echo esc_url( get_template_directory_uri() . '/fonts/genericons/genericons.css' ); ?> type='text/css' media='all' />
 </head>
 
 <body class="coming-soon-page">
@@ -47,6 +47,12 @@
 						</form>
 					<?php endif; ?>
 				<?php endif; ?>
+
+				<?php
+					if ( function_exists( 'jetpack_social_menu' ) ) {
+						jetpack_social_menu();
+					}
+				?>
 
 			</main><!-- #main -->
 		</div><!-- #primary -->

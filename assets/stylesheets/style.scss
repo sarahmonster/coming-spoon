@@ -3,7 +3,9 @@
 --------------------------------------------------------------*/
 @import "normalize";
 @import "variables";
+@import "accessibility";
 @import "forms";
+@import "icons";
 
 body {
 	background: $color__background;
